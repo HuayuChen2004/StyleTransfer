@@ -58,7 +58,23 @@ def save_image(img, path):
         smooth_image(img)
         img.save(path)
 
+def get_content_imgs(image_pack_path):
+    content_imgs = []
+    for folder_path in os.listdir(image_pack_path):
+        # 如果文件夹的名字是指定的一些就跳过
+        folder_name = folder_path.split('/')[-1]
+        if folder_name in ['成品', '油画']:
+            continue
+        content_imgs.extend(load_images_from_folder(os.path.join(image_pack_path, folder_path), device))
+    return content_imgs
 
+def get_style_imgs(style_image_path):
+    style_imgs = []
+    paths = os.listdir(style_image_path)
+    for style_img_path in os.listdir(style_image_path):
+        style_img = read_image(os.path.join(style_image_path, style_img_path))
+        style_imgs.append(style_img)
+    return style_imgs, paths
 
 
 
