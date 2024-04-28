@@ -22,7 +22,7 @@ def tv_loss(Y_hat):
     return 0.5 * (torch.abs(Y_hat[:, :, 1:, :] - Y_hat[:, :, :-1, :]).mean() + torch.abs(Y_hat[:, :, :, 1:] - Y_hat[:, :, :, :-1]).mean())
 
 # 损失函数
-content_weight, style_weight, tv_weight = 1, 2e3, 10
+content_weight, style_weight, tv_weight = 1, 1e4, 10
 
 def compute_loss(X, contens_Y_hat, styles_Y_hat, contents_Y, styles_Y_gram):
     contents_l = [content_loss(Y_hat, Y) * content_weight for Y_hat, Y in zip(contens_Y_hat, contents_Y)]

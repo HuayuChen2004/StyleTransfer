@@ -27,7 +27,7 @@ style_imgs = uniform_channels(style_imgs)
 
 """主函数"""
 image_shape = (450, 675)
-lr, num_epochs, lr_decay_epoch = 0.3, 500, 50
+lr, num_epochs, lr_decay_epoch = 0.5, 500, 50
 
 batch_train(style_imgs, style_imgs_path, content_imgs, lr, num_epochs, lr_decay_epoch, image_shape, content_layers, style_layers, net)
 
