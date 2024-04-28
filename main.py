@@ -42,13 +42,13 @@ def train(X, contents_Y, styles_Y, lr, num_epochs, lr_decay_epoch):
 """主函数"""
 # 加载图片和模型(可以选择是否采用自己训练的模型)
 images = load_images_from_folder(r"D:\coding\python_work\st\图像\建筑", device)
-style_img = read_image(r"D:\coding\python_work\st\图像\油画\秋树.jpg").to(device)
+style_img = read_image(r"D:\coding\python_work\st\图像\油画\田野.jpg").to(device)
 image_shape = (450, 675)
 lr, num_epochs, lr_decay_epoch = 0.5, 500, 50
 out_imgs = []
 images = uniform_channels(images)
 
-num_trials = 4
+num_trials = 5
 
 import os
 from image import save_image
